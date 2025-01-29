@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chartPage">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="form-section">
+            <form id="transactionForm">
+                <input type="date" id="date" required>
+                <input type="text" id="summary" placeholder="Summary" required>
+                <input type="number" id="amount" placeholder="Amount" required>
+
+                <select id="category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="loan">Loan</option>
+                    <option value="salary">Salary</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="miscellaneous">Miscellaneous</option>
+                </select>
+
+                <div class="type">
+                    <label>
+                        <input type="radio" name="type" id="income" required> Income
+                    </label>
+                    <label>
+                        <input type="radio" name="type" id="expense" required> Expense
+                    </label>
+                </div>
+
+                <button type="submit" id="submit">Submit</button>
+            </form>
+        </div>
+        <section>
+        <div class="filter-section">
+            <label>Sort By :</label>
+            <label>
+                <input type="radio" name="filter-section" id="all" style="margin-left: 10px;" checked>All
+            </label>
+            <label>
+                <input type="radio" name="filter-section" id="inc" style="margin-left: 20px;">Income
+            </label>
+            <label>
+                <input type="radio" name="filter-section" id="exp" style="margin-left: 20px;">Expenses
+            </label>
+        </div>
+
+        <div class="categorySection">
+            <label for="filter">Category:</label>
+                <select id="filter">
+                    <option id="all-1">All</option>
+                    <option id="loan-1">Loan</option>
+                    <option id="salary-1">Salary</option>
+                    <option id="food-1">Food</option>
+                    <option id="transport-1">Transport</option>
+                    <option id="miscellaneous-1">Miscellaneous</option>
+                </select>
+            </div>
+
+            <div class="balance-section">
+                <h2>Available Balance: <span id="balance">0</span></h2>
+            </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Summary</th>
+                    <th>Credit</th>
+                    <th>Debit</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTable"></tbody>
+        </table>
+    </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
